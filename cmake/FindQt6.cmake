@@ -37,19 +37,16 @@ set(QT6_LIBRARY_DIR} ${QT_INSTALL_DIR}/lib)
 
 add_library(Qt6::Core INTERFACE IMPORTED)
 set_target_properties(Qt6::Core PROPERTIES
-#    INTERFACE_INCLUDE_DIRECTORIES "${QT_INSTALL_DIR}/include/QtCore"
     IMPORTED_LOCATION "${QT_INSTALL_DIR}/lib/libQt6Core.so"
 )
 
 add_library(Qt6::Gui INTERFACE IMPORTED)
 set_target_properties(Qt6::Gui PROPERTIES
-#    INTERFACE_INCLUDE_DIRECTORIES "${QT_INSTALL_DIR}/include/QtGui"
     IMPORTED_LOCATION "${QT_INSTALL_DIR}/lib/libQt6Gui.so"
 )
 
 add_library(Qt6::Quick INTERFACE IMPORTED)
 set_target_properties(Qt6::Quick PROPERTIES
-#    INTERFACE_INCLUDE_DIRECTORIES "${QT_INSTALL_DIR}/include/QtQuick"
     IMPORTED_LOCATION "${QT_INSTALL_DIR}/lib/libQt6Quick.so"
 )
 
