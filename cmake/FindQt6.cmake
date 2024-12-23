@@ -7,7 +7,7 @@ ExternalProject_Add(qtbase
     GIT_TAG 6.8.1
     PREFIX ${CMAKE_BINARY_DIR}/qtbase
     CONFIGURE_COMMAND
-        <SOURCE_DIR>/configure -prefix ${QT_INSTALL_DIR} -release -opensource -confirm-license -sbom -nomake examples -nomake tests -no-pch -no-opengl -no-openssl -no-widgets -no-unity-build -no-feature-androiddeployqt -no-feature-macdeployqt -no-feature-windeployqt -no-feature-network -no-feature-printsupport -no-feature-sql -no-feature-testlib -no-feature-xml -no-feature-appstore-compliant
+        <SOURCE_DIR>/configure -prefix ${QT_INSTALL_DIR} -release -opensource -confirm-license -sbom -nomake examples -nomake tests -no-pch -no-opengl -no-openssl -no-widgets -no-unity-build -no-dbus -no-ico -no-gif -no-libjpeg -no-feature-androiddeployqt -no-feature-macdeployqt -no-feature-windeployqt -no-feature-network -no-feature-printsupport -no-feature-sql -no-feature-testlib -no-feature-xml -no-feature-appstore-compliant
     BUILD_COMMAND ${CMAKE_COMMAND} --build <BINARY_DIR> --parallel
     INSTALL_COMMAND ${CMAKE_COMMAND} --install <BINARY_DIR>
     BUILD_BYPRODUCTS ${QT_INSTALL_DIR}/lib/cmake/Qt6/Qt6Config.cmake
@@ -50,6 +50,12 @@ set_target_properties(Qt6::Quick PROPERTIES
     IMPORTED_LOCATION "${QT_INSTALL_DIR}/lib/libQt6Quick.so"
 )
 
+add_library(Qt6::Qml INTERFACE IMPORTED)
+set_target_properties(Qt6::Qml PROPERTIES
+    IMPORTED_LOCATION "${QT_INSTALL_DIR}/lib/libQt6Qml.so"
+)
+
 add_dependencies(Qt6::Core qtbase)
 add_dependencies(Qt6::Gui qtbase)
 add_dependencies(Qt6::Quick qtdeclarative)
+add_dependencies(Qt6::Qml qtdeclarative)
