@@ -30,8 +30,6 @@ ExternalProject_Add(qtdeclarative
     BUILD_ALWAYS FALSE
 )
 
-set(CMAKE_PREFIX_PATH "${QT_INSTALL_DIR}" CACHE PATH "Path to Qt6 installation" FORCE)
-set(Qt6_DIR ${QT_INSTALL_DIR}/lib/cmake/Qt6)
 set(QT6_INCLUDE_DIR ${QT_INSTALL_DIR}/include)
 set(QT6_LIBRARY_DIR} ${QT_INSTALL_DIR}/lib)
 
